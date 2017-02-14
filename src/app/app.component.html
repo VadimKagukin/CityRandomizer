@@ -5,13 +5,12 @@
 <main>
   <section>
     <div class="item">
-      <button type="button" (click)="generate()">Generate</button>
-      <input type="text" id="last-item" [ngModel]="adjectives" [ngModel]="city">
+      <button (click)="generate()">Generate</button>
+      <input [ngModel]="collocation" type="text" id="last-item" disabled>
     </div>
     <div class="list">
-      <textarea id="list-items" rows="10" disabled>
-        
-      </textarea>
+      <textarea id="list-items" rows="10" disabled></textarea>
+      <p>Generated {{count}} of 10.</p>
     </div>
   </section>
 </main>

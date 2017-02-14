@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 import { HttpService } from './http.service';
 
@@ -10,22 +10,27 @@ import { Сollocation } from './collocation';
   styleUrls: ['./app.component.css'],
   providers: [HttpService]
 })
-export class AppComponent implements OnInit {
-  collocations : Сollocation[] = [];
-  //adjectives : string[] = [];
-  //cities : string[] = [];
+export class AppComponent {
+  collocation : string;
+  collocations : string[] = [];
+  count : number = 0;
 
   constructor(private httpService: HttpService){}
 
-  /*generate(){
-    this.httpService.addCollocation();
-  }*/
-
-  ngOnInit(){
-    this.httpService.getCollocation().subscribe((data)=> {
-      this.collocations = data;
-      console.log("data: " + data);
-      console.log(this.collocations[0]);
+  generate() {
+    this.httpService.getGenerated()
+    .subscribe((data) => { 
+      if (this.collocations.indexOf(data) != -1){
+        this.generate();
+      } else {
+        if (this.collocations.length < 10){
+          this.collocation = data;
+          this.collocations.push(data);
+          (<HTMLInputElement>document.getElementById('list-items')).value = this.collocations.join('\n');
+          this.count = this.collocations.length;
+        }
+      }
     })
   }
+
 }

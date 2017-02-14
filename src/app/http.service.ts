@@ -9,32 +9,19 @@ import 'rxjs/add/operator/map';
  
 @Injectable()
 export class HttpService{
- 
-    constructor(private http: Http){ }
 
-    getCollocation(){
-      return this.http.get('https://gp-js-test.herokuapp.com/api')
-        .map((resp:Response)=>{
-          let collocationsList = resp.json();
-          let collocations :Сollocation[] = [];
-          for(let index in collocationsList){
-            console.log(collocationsList[index]);
-            let col = collocationsList[index];
-            collocations.push({adjectives: col.adjectives, city: col.city});
-          }
-          return collocations;
+  constructor(private http: Http){ }
 
-                /*this.collocations = resp.json();
-                this.adjectives = resp.json().adjectives;
-                this.cities = resp.json().cities;
-                (<HTMLInputElement>document.getElementById('myTextArea')).value = this.collocations.join('\n');
-                */
-        })
-    }
+  getGenerated(){
+    return this.http.get('https://gp-js-test.herokuapp.com/api')
+      .map((resp:Response)=>{
+        let collocationsList = resp.json();
 
-    /*addCollocation(){
-      let rand = Math.floor(Math.random() * 4);
-      console.log(rand);
-      
-    }*/
+        let rand = Math.floor(Math.random() * 4);
+        let collocationString : string = collocationsList.adjectives[rand] + " " + collocationsList.cities[rand];
+        collocationString = collocationString.charAt(0).toUpperCase() + collocationString.substr(1);
+
+        return collocationString;
+      })
+  }
 }
