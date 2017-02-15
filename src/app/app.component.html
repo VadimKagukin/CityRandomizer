@@ -2,15 +2,13 @@
   <h1>{{title}}</h1>
 </header>
 
-<main>
-  <section>
-    <div class="item">
-      <button (click)="generate()">Generate</button>
-      <input [ngModel]="collocation" type="text" id="last-item" disabled>
-    </div>
-    <div class="list">
-      <textarea id="list-items" rows="10" disabled></textarea>
-      <p>Generated {{count}} of 10.</p>
-    </div>
-  </section>
-</main>
+<div class="content">
+  <div class="item">
+    <button (click)="generate()" id="button">Generate</button>
+    <input [ngModel]="collocation" type="text" id="last_item" disabled>
+  </div>
+  <div class="list">
+    <textarea id="list_items" rows="10" disabled></textarea>
+    <p>Generated {{count}} of 10.</p>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.content{
+    margin: 10px;
+    padding: 10px;
+    font : 14px Verdana,Arial,sans-serif;
+}
+
+.item, .list{
+    width: 350px;
+    padding: 5px;
+}
+
+button{
+    height: 30px;
+    width: 100px;
+    border-radius: 2px;
+    font : 12px Verdana,Arial,sans-serif;
+}
+
+#last_item{
+    height: 26px;
+    width: 230px;
+    border-radius: 4px;
+    background: #F5F5F5;
+}
+
+#list_items{
+    width: 335px;
+    border-radius: 5px;
+    background: #F5F5F5;
+}

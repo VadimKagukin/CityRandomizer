@@ -26,7 +26,7 @@ export class AppComponent {
         if (this.collocations.length < 10){
           this.collocation = data;
           this.collocations.push(data);
-          (<HTMLInputElement>document.getElementById('list-items')).value = this.collocations.join('\n');
+          (<HTMLInputElement>document.getElementById('list_items')).value = this.collocations.join('\n');
           this.count = this.collocations.length;
         }
       }
